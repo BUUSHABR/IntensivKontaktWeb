@@ -22,7 +22,9 @@
     "npm": "^9.5.1",
     "prettier": "^2.7.1",
     "react": "^17.0.2",
+
     "react-device-detect": "^2.2.3",
+
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1",
@@ -43,7 +45,9 @@
     "yup": "^0.32.11"
   },
   "scripts": {
+
     "start": "set PORT=80 && react-scripts start --host 192.168.1.39",
+
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -72,4 +76,6 @@
     "postcss": "^8.4.5",
     "tailwindcss": "^3.0.16"
   }
+
 }
+

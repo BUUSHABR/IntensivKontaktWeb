@@ -1,0 +1,301 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'BeVietnamBold';
+  src: local('BeVietnam'), url('./fonts/BeVietnam/BeVietnamPro-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'BeVietnamRegular';
+  src: local('BeVietnam'), url('./fonts/BeVietnam/BeVietnamPro-Regular.ttf') format('truetype');
+}
+
+html {
+  /*overwrite style zoom web sdk*/
+  min-width: 320px !important;
+  overflow: auto !important;
+}
+
+body {
+  margin: 0;
+  font-family: 'BeVietnamRegular', 'Open Sans', 'sans-serif';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @apply text-int-grey-60;
+  /*overwrite style zoom web sdk*/
+  min-width: 320px !important;
+  overflow: auto !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+h1 {
+  @apply text-h1 text-int-black;
+}
+
+h2 {
+  @apply text-h2 font-BeVietnamBold text-int-black;
+}
+
+h3 {
+  @apply text-h3 font-bold text-int-black;
+}
+
+/* Toast */
+.Toastify .custom-toast {
+  width: unset;
+  min-width: 248px;
+  top: 22px;
+}
+
+.Toastify .Toastify__close-button {
+  align-self: center;
+}
+
+.Toastify .Toastify__progress-bar--success {
+  @apply bg-int-green-alert;
+}
+
+.Toastify .Toastify__progress-bar {
+  height: 3px;
+}
+
+.custom-toast .Toastify__toast {
+  border-radius: 11px;
+  min-height: unset;
+}
+
+.custom-toast .custom-body-toast {
+  @apply text-int-grey-90 text-button mr-2 p-0;
+}
+
+textarea,
+input:matches([type='email'], [type='number'], [type='password'], [type='search'], [type='tel'], [type='text'], [type='url']) {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Checkbox */
+.checkbox-field {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkbox-field input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 24px;
+  width: 24px;
+  background-color: #fff;
+  border: 1px solid #56a0bb;
+  border-radius: 4px;
+}
+
+.checkbox-field:hover input ~ .checkmark {
+  background-color: #fff;
+}
+
+.checkbox-field input:checked ~ .checkmark {
+  background-color: #56a0bb;
+}
+
+.checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+.checkbox-field input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-field .checkmark:after {
+  left: 7px;
+  top: 1px;
+  width: 8px;
+  height: 16px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/*Audio player style input range*/
+input[type='range'].my2-slider {
+  width: 100%;
+  margin: -3px 0;
+  background-color: transparent;
+  overflow: hidden;
+  -webkit-appearance: none;
+}
+
+input[type='range'].my2-slider:focus {
+  outline: none;
+}
+
+input[type='range'].my2-slider::-webkit-slider-runnable-track {
+  border: 0;
+  width: 100%;
+  height: 18px;
+  cursor: pointer;
+}
+
+input[type='range'].my2-slider::-webkit-slider-thumb {
+  margin-top: 3px;
+  width: 12px;
+  height: 12px;
+  background: #56a0bb;
+  border: 0px solid rgba(0, 0, 0, 0);
+  border-radius: 12px;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+input[type='range'].my2-slider::-moz-range-track {
+  border: 0;
+  width: 100%;
+  height: 18px;
+  cursor: pointer;
+}
+
+input[type='range'].my2-slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  background: #56a0bb;
+  border: 0px solid rgba(0, 0, 0, 0);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+input[type='range'].my2-slider::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  border-width: 0 0;
+  color: transparent;
+  width: 100%;
+  height: 18px;
+  cursor: pointer;
+}
+
+input[type='range'].my2-slider::-ms-thumb {
+  width: 12px;
+  height: 12px;
+  background: #56a0bb;
+  border: 0px solid rgba(0, 0, 0, 0);
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 0px;
+  /*Needed to keep the Edge thumb centred*/
+}
+
+/*TODO: Use one of the selectors from https://stackoverflow.com/a/20541859/7077589 and figure out
+how to remove the virtical space around the range input in IE*/
+@supports (-ms-ime-align: auto) {
+  /* Pre-Chromium Edge only styles, selector taken from hhttps://stackoverflow.com/a/32202953/7077589 */
+  input[type='range'].my2-slider {
+    margin: 0;
+    /*Edge starts the margin from the thumb, not the track as other browsers do*/
+  }
+}
+
+/*Zoom screen before calling zoom meeting*/
+#zmmtg-root {
+  display: none;
+}
+
+/*Zoom footer hide settings*/
+.footer__btns-container div[feature-type='security'],
+.footer__btns-container div[feature-type='record'],
+.footer__btns-container div[feature-type='closedCaptionForHost'],
+.footer__btns-container div[feature-type='reaction'],
+.footer__btns-container div[feature-type='settings'] {
+  opacity: 0 !important;
+  display: none !important;
+}
+
+.footer__btns-container div .sharing-entry-button-container {
+  display: none !important;
+  opacity: 0 !important;
+}
+
+#moreButton {
+  display: none !important;
+  opacity: 0 !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  -webkit-text-fill-color: #6f7782 !important;
+}
+
+.gallery-preview:first-child {
+  margin-left: 20px;
+}
+
+#videoPreview {
+  object-fit: cover;
+}
+
+/*Hide progress bar for video preview in camera*/
+#videoPreview::-webkit-media-controls-timeline {
+  display: none;
+}
+
+/*fix highlighting images when double-clicking anywhere on the page*/
+img {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.ant-message-notice {
+  display: none !important;
+}
+
+.ant-message-notice:last-child {
+  display: block !important;
+}
+
+.personal-data-container .react-tel-input .form-control {
+  border: none !important;
+  height: 33px !important;
+  min-width: 200px !important;
+  width: min-content !important;
+}
+
+.personal-data-container .react-tel-input .flag-dropdown {
+  background: none !important;
+  border: none !important;
+  border-right: 1px solid #ECEFF0 !important;
+}
+
+.personal-data-container .react-tel-input .selected-flag {
+  padding: 0 0 0 0px !important;
+}
